@@ -5,7 +5,7 @@ var router = express.Router();
 const fs = require('fs')
 const path = require('path')
 const { promisify } = require('util')
-
+const imagePath = '../uploadimage/client/src/uploads/'
 const unlinkAsync = promisify(fs.unlink)
 
 //
@@ -74,18 +74,33 @@ router.get("/", (req, res) => {
         })
 })
 
+// Delete a Image with id
+router.delete("/:id",(req, res) => {
+  const id = req.params.id;
 
-//retrive  image 
-router.get("/", (req, res) => {
-  UploadImage.find({})
-      .then( result => {
-          console.log(result)
-          res.send(result)
-      })
-      .catch(err => {
-          res.send(err)
-      })
-})
+  UploadImage.findByIdAndRemove(id)
+    .then(data => {
+      if (!data) {
+        res.status(404).send({
+          message: `Cannot delete Image with id=${id}. Maybe Image was not found!`
+        });
+        
+      } else {
+        res.send({
+          
+          message: "Image was deleted successfully!"
+        })
+        unlinkAsync(imagePath+data.imageName) 
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Could not delete Image with id=" + id
+      });
+    });
+});
+
+
 
 
 

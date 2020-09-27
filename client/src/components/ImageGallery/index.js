@@ -34,6 +34,16 @@ const ImageGallery = (props) => {
         setCurrentIndex(index);
     };
     
+    const deleteImage = () => {
+      userDataService.remove(currentImage.id)
+        .then(response => {
+          console.log(response.data);
+          props.history.push("/");
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    };
 
 
 
@@ -73,6 +83,9 @@ const ImageGallery = (props) => {
                 {currentImage.imageData}
               </p>
               
+              <button className="badge badge-danger mr-2" onClick={deleteImage}>
+                Delete
+              </button>
             </div>
           </div>
         ) : (

@@ -9,9 +9,12 @@ const getAll = () => {
     return http.get("/user");
 };
 
-
+const remove = id => {
+  return http.delete(`/user/${id}`);
+};
 
 export default {
     upload,
-    getAll
+    getAll,
+    remove
   };
