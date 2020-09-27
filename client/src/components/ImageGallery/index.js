@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import {Link} from 'react-router-dom';
 import userDataService from '../../services/user.dataService';
 import './style.css';
 
@@ -8,7 +7,6 @@ const ImageGallery = (props) => {
     const [images, setImages] = useState([]);
     const [currentImage, setCurrentImage] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(-1);
-    
     
 
     useEffect(() => {
@@ -44,7 +42,6 @@ const ImageGallery = (props) => {
           console.log(e);
         });
     };
-
 
 
   return(
@@ -86,7 +83,7 @@ const ImageGallery = (props) => {
               <button className="badge badge-danger mr-2" onClick={deleteImage}>
                 Delete
               </button>
-            </div>
+              </div>
           </div>
         ) : (
           <div>

@@ -7,19 +7,10 @@ import './style.css';
 const AddImage = (props) => {
 
     const [multerImage, setMulterImage] = useState([]);
-    const [currentImage, setCurrentImage] = useState(null);
-    const [currentIndex, setCurrentIndex] = useState(-1);
-    
 
     useEffect(() => {
         setMulterImage()
     }, []);
-
-      
-    const setActiveImage = (image, index) => {
-        setCurrentImage(image);
-        setCurrentIndex(index);
-    };
 
     const uploadImage = (e) => {
         var data = new FormData();
