@@ -1,0 +1,14 @@
+.list-row{
+    display: flex;
+    justify-content: space-between;
+}
+#image-details-container{
+    margin-top: 5%;
+}
+
+.process-image{
+    margin-top: 10px;
+}
+.gallery-title{
+    text-align: center;
+}

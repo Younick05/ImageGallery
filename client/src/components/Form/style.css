@@ -1,0 +1,11 @@
+.form-container{
+    display: flex;
+    width: 25%;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.process-image{
+    max-width: 100%;
+}
